@@ -1,0 +1,27 @@
+open postgres db database
+    docker-compose exec app python manage.py dbshell
+
+    \l
+
+    \dt
+
+    \c database_name
+
+    SELECT * FROM accounts_verificationcode LIMIT 10;
+
+
+starts docker project
+    docker-compose down
+    docker-compose up --build
+
+    docker-compose restart
+
+run celery worker
+    docker-compose exec app celery -A user_auth_project worker --loglevel=info
+
+make mig
+    docker-compose exec app python manage.py makemigrations
+    docker-compose exec app python manage.py migrate
+
+
+
